@@ -7,12 +7,12 @@ package GUI;
  */
 public class Login extends javax.swing.JFrame {
 
+    int xMouse, yMouse;
     /**
      * Creates new form Login
      */
     public Login() {
         setLayout(null);
-        setLocationRelativeTo(null);
         initComponents();
     }
     @SuppressWarnings("unchecked")
@@ -25,12 +25,15 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         fieldNombre = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        fieldPassword = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         btnLogin = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        fieldPassword = new javax.swing.JPasswordField();
+        Mover = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
 
@@ -64,7 +67,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(191, 25, 25));
         jLabel1.setText("Inicio de Sesion");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         fieldNombre.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
         fieldNombre.setForeground(new java.awt.Color(204, 204, 204));
@@ -85,25 +88,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 340, 30));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 330, -1));
-
-        fieldPassword.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
-        fieldPassword.setForeground(new java.awt.Color(204, 204, 204));
-        fieldPassword.setText("Contraseña");
-        fieldPassword.setBorder(null);
-        fieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                fieldPasswordFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                fieldPasswordFocusLost(evt);
-            }
-        });
-        fieldPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldPasswordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 340, 30));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 330, -1));
 
         btnLogin.setBackground(new java.awt.Color(191, 25, 25));
@@ -134,6 +118,58 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 200, 40));
 
+        fieldPassword.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
+        fieldPassword.setForeground(new java.awt.Color(204, 204, 204));
+        fieldPassword.setText("********");
+        fieldPassword.setBorder(null);
+        fieldPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldPasswordFocusLost(evt);
+            }
+        });
+        jPanel1.add(fieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 330, -1));
+
+        Mover.setBackground(new java.awt.Color(255, 255, 255));
+        Mover.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                MoverMouseDragged(evt);
+            }
+        });
+        Mover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MoverMousePressed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("X");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MoverLayout = new javax.swing.GroupLayout(Mover);
+        Mover.setLayout(MoverLayout);
+        MoverLayout.setHorizontalGroup(
+            MoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MoverLayout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 572, Short.MAX_VALUE))
+        );
+        MoverLayout.setVerticalGroup(
+            MoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(Mover, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,29 +188,40 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldNombreActionPerformed
 
-    private void fieldPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldPasswordActionPerformed
-
     //BOTON DEL LOGIN
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         System.out.print("Hola");
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained
-        fieldNombre.setText(""); 
+        if (fieldNombre.getText().equals("Nombre de usuario")){fieldNombre.setText("");}   
     }//GEN-LAST:event_fieldNombreFocusGained
 
     private void fieldNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusLost
         if(fieldNombre.getText().isEmpty()){fieldNombre.setText("Nombre de usuario");}
     }//GEN-LAST:event_fieldNombreFocusLost
 
+    private void MoverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MoverMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_MoverMousePressed
+
+    private void MoverMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MoverMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_MoverMouseDragged
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
     private void fieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusGained
-        fieldPassword.setText(""); 
+        if (String.valueOf(fieldPassword.getPassword()).equals("********")){fieldPassword.setText("");}
     }//GEN-LAST:event_fieldPasswordFocusGained
 
     private void fieldPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusLost
-        if(fieldPassword.getText().isEmpty()){fieldPassword.setText("Contraseña");}
+        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){fieldPassword.setText("********");}
     }//GEN-LAST:event_fieldPasswordFocusLost
  
     /**
@@ -214,11 +261,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
+    private javax.swing.JPanel Mover;
     private javax.swing.JPanel btnLogin;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JTextField fieldPassword;
+    private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
