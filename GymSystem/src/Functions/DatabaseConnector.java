@@ -8,14 +8,13 @@ public class DatabaseConnector {
     
         public static Connection GetConexion(){
         
-        String url="jdbc:sqlserver://DESKTOP-0830UCL:1433;"
-                    +"database=registro;"
-                    +"user=sa;"
-                    +"password=1234;"
-                    +"TrustServerCertificate=True;";
+        String url = "jdbc:mysql://localhost/sistema";
+        String usuario = "usuario";
+        String passowrd = "contrasena";
         
         try{
-            Connection con=DriverManager.getConnection(url);
+            
+            Connection con=DriverManager.getConnection(url,usuario,passowrd);
             return con;
         
         } catch (SQLException e){
