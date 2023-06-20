@@ -1,6 +1,8 @@
 
 package GUI;
 
+import java.awt.Color;
+
 /**
  *
  * @author loualex
