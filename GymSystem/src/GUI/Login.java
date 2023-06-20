@@ -157,7 +157,7 @@ public class Login extends javax.swing.JFrame {
 
         javax.swing.GroupLayout MoverLayout = new javax.swing.GroupLayout(Mover);
         Mover.setLayout(MoverLayout);
-        MoverLayout.setHorizontalGroup(
+        MoverLayout.ketHorizontalGroup(
             MoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoverLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
