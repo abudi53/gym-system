@@ -1,7 +1,11 @@
 
 package GUI;
 
+<<<<<<< HEAD
 import java.awt.Color;
+=======
+import java.sql.Connection;
+>>>>>>> dcfa369304f520c519549ff99a8e516a46c6f196
 
 /**
  *
@@ -16,6 +20,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         setLayout(null);
         initComponents();
+        Connection con=DataBaseConnector.GetConexion();
+     
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -192,7 +198,6 @@ public class Login extends javax.swing.JFrame {
 
     //BOTON DEL LOGIN
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-        System.out.print("Hola");
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained
