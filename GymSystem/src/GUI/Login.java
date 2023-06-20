@@ -1,7 +1,8 @@
 
 package GUI;
+
 import java.sql.Connection;
-import Functions.DatabaseConnector;
+
 /**
  *
  * @author loualex
@@ -15,6 +16,8 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         setLayout(null);
         initComponents();
+        Connection con=DataBaseConnector.GetConexion();
+     
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -191,7 +194,6 @@ public class Login extends javax.swing.JFrame {
 
     //BOTON DEL LOGIN
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-
     }//GEN-LAST:event_btnLoginMouseClicked
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained

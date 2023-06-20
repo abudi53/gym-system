@@ -11,8 +11,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import  Functions.DatabaseConnector;
-import static Functions.DatabaseConnector.GetConexion;
+
+
 import java.sql.Statement;
 
 
@@ -26,48 +26,42 @@ public class Clientes extends javax.swing.JFrame {
      */
     public Clientes() {
         initComponents();
+         visualizartabla();
         
     }
 
         private void visualizartabla() {
         DefaultTableModel modelotabla=(DefaultTableModel) jTable1.getModel();
-       try{ 
-            Statement consulta = GetConexion().createStatement();
-             ResultSet resultado = consulta.executeQuery("SELECT * FROM clientes");
-
-                // Creación del modelo de la tabla
-                DefaultTableModel modelo = new DefaultTableModel();
-                modelo.addColumn("Cedula");
-                modelo.addColumn("Nombre Completo");
-                modelo.addColumn("Sexo");
-                modelo.addColumn("Edad");
-                modelo.addColumn("Direccion");
-                modelo.addColumn("Numero de Telefono");
-                modelo.addColumn("Correo");
-                modelo.addColumn("Fecha de Nacimiento");
-                modelo.addColumn("Fecha de Inscripcion");
+        modelotabla.setRowCount(0);
+        PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData rsmd;
+        int colummnas;
   
-
-                while (resultado.next()) {
-                    Object[] fila = new Object[9];
-                    fila[0] = resultado.getInt("cedula");
-                    fila[1] = resultado.getString("nombre_completo");
-                    fila[2] = resultado.getString("sexo");
-                    fila[3] = resultado.getInt("edad");
-                    fila[4] = resultado.getString("direccion");
-                    fila[5] = resultado.getString("num_telefono");
-                    fila[6] = resultado.getString("correo");
-                    fila[7] = resultado.getDate("f_nacimiento");
-                    fila[8] = resultado.getDate("f_inscripcion");
-                    modelo.addRow(fila);
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al conectarse a la base de datos: " + e.getMessage());
+        
+        try{
+            Connection con=DataBaseConnector.GetConexion();
+            ps=con.prepareStatement("SELECT id,Cedula,Nombre,Sexo,edadmDirrecion,N.Telefono,Correo,inscripción FROM Clientes");
+            rs=ps.executeQuery();
+            rsmd=rs.getMetaData();
+           colummnas=rsmd.getColumnCount();
+           
+           while(rs.next()){
+               Object[] fila=new Object [colummnas];
+               for(int indice=0; indice<colummnas;indice++){
+                   fila[indice]=rs.getObject(indice+1);
+               }
+               modelotabla.addRow(fila);
+           }
+    
+            
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e.toString());
+            
         }
         
     }
-
-  
+    
 
         
     
