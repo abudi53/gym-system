@@ -10,6 +10,7 @@ package GUI;
  */
 public class Agregar_cliente extends javax.swing.JFrame {
 
+    int xMouse, yMouse;
     /**
      * Creates new form agregar_cliente
      */
