@@ -10,14 +10,12 @@ public class DataBaseConnector {
     
     public static Connection GetConexion(){
         
-        String url="jdbc:sqlserver://DESKTOP-0830UCL:1433;"
-                    +"database=sistema;"
-                    +"user=sa;"
-                    +"password=1234;"
-                    +"TrustServerCertificate=True;";
-        
+        String url="jdbc:mysql://localhost:3306/?user=root";
+        String db = "database=sistema;";
+        String user = "root";
+        String pass = "111222888";
         try{
-            Connection con=DriverManager.getConnection(url);
+            Connection con=DriverManager.getConnection(url, user, pass);
             System.out.println("todo bien");
             return con;
             
