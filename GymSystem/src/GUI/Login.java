@@ -6,6 +6,9 @@ import java.awt.Color;
 =======
 import java.sql.Connection;
 >>>>>>> dcfa369304f520c519549ff99a8e516a46c6f196
+import Metodos.*;
+
+import Metodos.DataBaseConnector;
 
 /**
  *
@@ -14,6 +17,7 @@ import java.sql.Connection;
 public class Login extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    DataBaseConnector con = new DatabaseConnector();
     /**
      * Creates new form Login
      */
