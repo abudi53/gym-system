@@ -2,6 +2,10 @@
 package GUI;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,6 +21,8 @@ public class Login extends javax.swing.JFrame {
         setLayout(null);
         initComponents();
         Connection con=DataBaseConnector.GetConexion();
+         setLocationRelativeTo(null);
+
      
     }
     @SuppressWarnings("unchecked")
@@ -194,7 +200,39 @@ public class Login extends javax.swing.JFrame {
 
     //BOTON DEL LOGIN
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
-    }//GEN-LAST:event_btnLoginMouseClicked
+       try {
+          String url="jdbc:sqlserver://DESKTOP-0830UCL:1433;"+"database=sistema;" +"user=sa;"+"password=1234;"+"TrustServerCertificate=True;";
+          Connection con = DriverManager.getConnection(url);
+         String query = "SELECT * FROM Users WHERE Usuario=? AND Passowrd=?";
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, fieldNombre.getText());
+            statement.setString(2, fieldPassword.getText());
+            ResultSet result = statement.executeQuery();
+
+             if (result.next()) {
+                      if( fieldNombre.getText().equals("Cajero")){
+                 
+                      Menu_Principal nuevaVentana = new Menu_Principal();
+                       nuevaVentana.setVisible(true);
+                       
+                      } else{
+                          
+                      Menu_admin nuevaVentana = new Menu_admin();
+                       nuevaVentana.setVisible(true);
+             }
+
+            } else {
+                 JOptionPane.showMessageDialog(null, "Credenciales NO encontradas");
+            }
+
+         
+      } catch (Exception e) {
+         System.err.println("Error: " + e.getMessage());
+      
+   
+
+      }
+        }//GEN-LAST:event_btnLoginMouseClicked
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained
         if (fieldNombre.getText().equals("Nombre de usuario")){fieldNombre.setText("");}   
