@@ -201,15 +201,15 @@ public class Login extends javax.swing.JFrame {
     //BOTON DEL LOGIN
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
        try {
-          String url="jdbc:sqlserver://DESKTOP-0830UCL:1433;"+"database=sistema;" +"user=sa;"+"password=1234;"+"TrustServerCertificate=True;";
-          Connection con = DriverManager.getConnection(url);
-         String query = "SELECT * FROM Users WHERE Usuario=? AND Passowrd=?";
+            Connection con=DataBaseConnector.GetConexion();
+            String query = "SELECT * FROM Users WHERE Usuario=? AND Password=?";
             PreparedStatement statement = con.prepareStatement(query);
             statement.setString(1, fieldNombre.getText());
             statement.setString(2, fieldPassword.getText());
             ResultSet result = statement.executeQuery();
 
              if (result.next()) {
+                 this.setVisible(false);
                       if( fieldNombre.getText().equals("Cajero")){
                  
                       Menu_Principal nuevaVentana = new Menu_Principal();
