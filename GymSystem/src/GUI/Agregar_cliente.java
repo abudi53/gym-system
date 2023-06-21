@@ -29,6 +29,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -41,6 +42,19 @@ public class Agregar_cliente extends javax.swing.JFrame {
         fieldCedula = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         Mover = new javax.swing.JPanel();
+        fieldCedula1 = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        fieldCedula2 = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        fieldCedula3 = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        fieldCedula4 = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        fieldCedula5 = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -191,6 +205,126 @@ public class Agregar_cliente extends javax.swing.JFrame {
 
         jPanel1.add(Mover, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
 
+        fieldCedula1.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
+        fieldCedula1.setForeground(new java.awt.Color(204, 204, 204));
+        fieldCedula1.setText("Telefono");
+        fieldCedula1.setBorder(null);
+        fieldCedula1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldCedula1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCedula1FocusLost(evt);
+            }
+        });
+        fieldCedula1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCedula1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldCedula1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 180, 40));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 180, 10));
+
+        fieldCedula2.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
+        fieldCedula2.setForeground(new java.awt.Color(204, 204, 204));
+        fieldCedula2.setText("E-mail");
+        fieldCedula2.setBorder(null);
+        fieldCedula2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldCedula2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCedula2FocusLost(evt);
+            }
+        });
+        fieldCedula2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCedula2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldCedula2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 180, 40));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 180, 10));
+
+        fieldCedula3.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
+        fieldCedula3.setForeground(new java.awt.Color(204, 204, 204));
+        fieldCedula3.setText("Edad");
+        fieldCedula3.setBorder(null);
+        fieldCedula3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldCedula3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCedula3FocusLost(evt);
+            }
+        });
+        fieldCedula3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCedula3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldCedula3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 180, 40));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 180, 10));
+
+        fieldCedula4.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
+        fieldCedula4.setForeground(new java.awt.Color(204, 204, 204));
+        fieldCedula4.setText("Fecha de Nacimiento");
+        fieldCedula4.setBorder(null);
+        fieldCedula4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldCedula4FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCedula4FocusLost(evt);
+            }
+        });
+        fieldCedula4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCedula4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldCedula4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 390, 40));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 390, 10));
+
+        jLabel2.setFont(new java.awt.Font("Coolvetica", 0, 32)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setText("Sexo");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+
+        jRadioButton1.setFont(new java.awt.Font("Coolvetica", 0, 13)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton1.setText("Femenino");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, -1));
+
+        jRadioButton2.setFont(new java.awt.Font("Coolvetica", 0, 13)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
+        jRadioButton2.setText("Masculino");
+        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+
+        fieldCedula5.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
+        fieldCedula5.setForeground(new java.awt.Color(204, 204, 204));
+        fieldCedula5.setText("Direccion");
+        fieldCedula5.setBorder(null);
+        fieldCedula5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                fieldCedula5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fieldCedula5FocusLost(evt);
+            }
+        });
+        fieldCedula5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fieldCedula5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(fieldCedula5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 390, 40));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 390, 10));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
@@ -246,6 +380,70 @@ public class Agregar_cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCedulaActionPerformed
 
+    private void fieldCedula1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula1FocusGained
+
+    private void fieldCedula1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula1FocusLost
+
+    private void fieldCedula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula1ActionPerformed
+
+    private void fieldCedula2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula2FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula2FocusGained
+
+    private void fieldCedula2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula2FocusLost
+
+    private void fieldCedula2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula2ActionPerformed
+
+    private void fieldCedula3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula3FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula3FocusGained
+
+    private void fieldCedula3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula3FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula3FocusLost
+
+    private void fieldCedula3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula3ActionPerformed
+
+    private void fieldCedula4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula4FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula4FocusGained
+
+    private void fieldCedula4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula4FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula4FocusLost
+
+    private void fieldCedula4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void fieldCedula5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula5FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula5FocusGained
+
+    private void fieldCedula5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula5FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula5FocusLost
+
+    private void fieldCedula5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fieldCedula5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -286,14 +484,28 @@ public class Agregar_cliente extends javax.swing.JFrame {
     private javax.swing.JPanel Mover;
     private javax.swing.JPanel btn_borrarCliente;
     private javax.swing.JPanel btn_editarCliente;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JTextField fieldCedula;
+    private javax.swing.JTextField fieldCedula1;
+    private javax.swing.JTextField fieldCedula2;
+    private javax.swing.JTextField fieldCedula3;
+    private javax.swing.JTextField fieldCedula4;
+    private javax.swing.JTextField fieldCedula5;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     // End of variables declaration//GEN-END:variables
 }

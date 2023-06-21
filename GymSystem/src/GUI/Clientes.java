@@ -84,6 +84,7 @@ public class Clientes extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btn_agregarCliente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -104,7 +105,7 @@ public class Clientes extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         btn_agregarPaquete.setBackground(new java.awt.Color(191, 25, 25));
         btn_agregarPaquete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,6 +267,15 @@ public class Clientes extends javax.swing.JFrame {
 
         jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 240, -1));
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 50));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -378,6 +388,12 @@ public class Clientes extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_MoverMousePressed
 
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        Menu_Principal frame = new Menu_Principal();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel3MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +439,7 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
