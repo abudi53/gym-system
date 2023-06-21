@@ -27,6 +27,7 @@ public class Clientes extends javax.swing.JFrame {
     public Clientes() {
         initComponents();
          visualizartabla();
+         setLocationRelativeTo(null);
         
     }
 
