@@ -1,6 +1,7 @@
 
 package GUI;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -235,11 +236,18 @@ public class Login extends javax.swing.JFrame {
         }//GEN-LAST:event_btnLoginMouseClicked
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained
-        if (fieldNombre.getText().equals("Nombre de usuario")){fieldNombre.setText("");}   
+        if (fieldNombre.getText().equals("Nombre de usuario")){
+            
+            fieldNombre.setText("");
+            fieldNombre.setForeground(new Color(0,0,0));     
+        }   
     }//GEN-LAST:event_fieldNombreFocusGained
 
     private void fieldNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusLost
-        if(fieldNombre.getText().isEmpty()){fieldNombre.setText("Nombre de usuario");}
+        if(fieldNombre.getText().isEmpty()){
+            fieldNombre.setText("Nombre de usuario");
+            fieldNombre.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldNombreFocusLost
 
     private void MoverMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MoverMousePressed
@@ -258,11 +266,17 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void fieldPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusGained
-        if (String.valueOf(fieldPassword.getPassword()).equals("********")){fieldPassword.setText("");}
+        if (String.valueOf(fieldPassword.getPassword()).equals("********")){
+            fieldPassword.setText("");
+            fieldPassword.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldPasswordFocusGained
 
     private void fieldPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldPasswordFocusLost
-        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){fieldPassword.setText("********");}
+        if (String.valueOf(fieldPassword.getPassword()).isEmpty()){
+            fieldPassword.setText("********");
+            fieldPassword.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldPasswordFocusLost
  
     /**
