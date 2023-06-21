@@ -132,8 +132,8 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ADMIN");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 153, -1, -1));
+        jLabel3.setText("Bienvenido");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
