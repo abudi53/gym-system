@@ -171,15 +171,19 @@ public class Agregar_cliente extends javax.swing.JFrame {
 
         jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 170, -1));
 
+        jButton1.setBackground(new java.awt.Color(191, 25, 25));
+        jButton1.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Foto");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 100, 40));
         jPanel2.add(ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 110));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, 110));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
@@ -209,7 +213,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
                 fieldNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 390, 40));
+        jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 390, 40));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 390, 10));
 
         fieldCedula.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N

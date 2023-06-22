@@ -174,9 +174,12 @@ public class Agregar_Entradores extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 170, -1));
+        jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 170, -1));
         jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 130));
 
+        jButton1.setBackground(new java.awt.Color(191, 25, 25));
+        jButton1.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Foto");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,7 +191,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 70, 30));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
 
@@ -210,7 +213,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
             }
         });
         jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 390, 40));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 390, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 390, 10));
 
         fieldCedula.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
         fieldCedula.setForeground(new java.awt.Color(204, 204, 204));
