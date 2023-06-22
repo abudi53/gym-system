@@ -5,7 +5,13 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -15,7 +21,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,6 +39,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
     public Agregar_cliente() {
         initComponents();
          setLocationRelativeTo(null);
+         ruta2.setVisible(false);
     }
 
     /**
@@ -44,11 +54,14 @@ public class Agregar_cliente extends javax.swing.JFrame {
         buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btn_borrarCliente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btn_editarCliente = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        ruta2 = new javax.swing.JTextField();
+        labeli = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         fieldNombre = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         fieldCedula = new javax.swing.JTextField();
@@ -83,10 +96,6 @@ public class Agregar_cliente extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(200, 400));
         jPanel2.setPreferredSize(new java.awt.Dimension(200, 400));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         btn_borrarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_borrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,6 +170,25 @@ public class Agregar_cliente extends javax.swing.JFrame {
         );
 
         jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 170, -1));
+
+        jButton1.setText("Foto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, 30));
+        jPanel2.add(ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, 110));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 70, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
 
@@ -524,7 +552,12 @@ public class Agregar_cliente extends javax.swing.JFrame {
        Calendar calendar = Calendar.getInstance();
         Date currentDate = (Date) calendar.getTime();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+          FileInputStream imagen=null;
         try {
+                 
+             File file=new File(ruta2.getText());
+            imagen=new FileInputStream(file);
+     
             Date fecha2 = (Date) formatoFecha.parse(fecha);
              Calendar calendar1 = Calendar.getInstance();
             calendar1.setTime(currentDate);
@@ -547,7 +580,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void GuardarDatos() throws ParseException{
+    private void GuardarDatos() throws ParseException, FileNotFoundException, IOException{
     
     
         try {
@@ -569,12 +602,18 @@ public class Agregar_cliente extends javax.swing.JFrame {
              SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String dateString = format.format(fecha2);
             java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);
-            
+             FileInputStream fis = new FileInputStream(ruta2.getText());
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            for (int readNum; (readNum = fis.read(buffer)) != -1;) {
+                bos.write(buffer, 0, readNum);
+             }
+            byte[] imagenEnBytes = bos.toByteArray();
             String dateString2 = format.format(currentDate);
             java.sql.Date sqlDate2 = java.sql.Date.valueOf(dateString2);
-           
+        
           Connection con=DataBaseConnector.GetConexion();
-           PreparedStatement ps=con.prepareStatement("INSERT INTO Clientes(Cedula, Nombre, Sexo, Edad,Dirrecion,[N.Telefono],Correo, inscripción,[F.nacimiento]) VALUES (?,?,?,?,?,?,?,?,?)");
+           PreparedStatement ps=con.prepareStatement("INSERT INTO Clientes(Cedula, Nombre, Sexo, Edad,Direccion,Telefono,Correo, Inscripcion,[F.nacimiento],Imagen) VALUES (?,?,?,?,?,?,?,?,?,?)");
            ps.setInt(1, cedula);
            ps.setString(2,nombre); 
            ps.setString(3, sexo);
@@ -584,6 +623,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
            ps.setString(7,correo);
            ps.setDate(8, sqlDate2);
            ps.setDate(9, sqlDate);
+            ps.setBytes(10, imagenEnBytes);
 
            ps.executeUpdate();
            JOptionPane.showMessageDialog(null,"Registro guardado");
@@ -623,6 +663,36 @@ public class Agregar_cliente extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String ruta;
+        JFileChooser JFileChooser= new JFileChooser();
+        FileNameExtensionFilter filtrado= new FileNameExtensionFilter("JPG, PNG","jpg","png");
+        JFileChooser.setFileFilter(filtrado);
+        String hola;
+        int respuesta=JFileChooser.showOpenDialog(this);
+
+        if(respuesta==JFileChooser.APPROVE_OPTION);
+        ruta=JFileChooser.getSelectedFile().getPath();
+
+        Image mImagen=new ImageIcon(ruta).getImage();
+        ImageIcon mIcono=new ImageIcon(mImagen.getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH));
+        labeli.setIcon(mIcono);
+        FileInputStream fi=null;
+        ruta2.setText(ruta);
+        try{
+            File file=new File(ruta);
+            fi=new FileInputStream(file);
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,ex.toString());
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+            this.setVisible(false);
+    }//GEN-LAST:event_jLabel4MousePressed
 
     /**
      * @param args the command line arguments
@@ -672,10 +742,11 @@ public class Agregar_cliente extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCedula4;
     private javax.swing.JTextField fieldCedula5;
     private javax.swing.JTextField fieldNombre;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -689,5 +760,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JLabel labeli;
+    private javax.swing.JTextField ruta2;
     // End of variables declaration//GEN-END:variables
 }

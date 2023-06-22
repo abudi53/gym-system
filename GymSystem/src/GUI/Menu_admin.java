@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Abudi
@@ -20,6 +23,10 @@ public class Menu_admin extends javax.swing.JFrame {
         initComponents();
              setLocationRelativeTo(null);
              this.dato =dato;
+               Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("hh:mm a");
+        labelhora.setText(formateador.format(ahora));
+
              
     }
 
@@ -46,6 +53,7 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_cerrarSesion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        labelhora = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -173,6 +181,9 @@ public class Menu_admin extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ADMIN");
 
+        labelhora.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
+        labelhora.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -189,6 +200,11 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(labelhora, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,6 +220,11 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(labelhora, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 600));
@@ -578,7 +599,7 @@ public class Menu_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel5MouseReleased
 // BOTON EQUIPOS
     private void jPanel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseReleased
-        Equipos nuevaVentana = new Equipos();
+        Equipos nuevaVentana = new Equipos(dato);
         nuevaVentana.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jPanel9MouseReleased
@@ -660,5 +681,6 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel labelhora;
     // End of variables declaration//GEN-END:variables
 }

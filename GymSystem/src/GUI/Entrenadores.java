@@ -28,6 +28,7 @@ public class Entrenadores extends javax.swing.JFrame {
          visualizartabla();
          setLocationRelativeTo(null);
         this.dato=dato;
+        idtext.setVisible(false);
     }
 
     private Entrenadores() {
@@ -83,6 +84,7 @@ public class Entrenadores extends javax.swing.JFrame {
         btn_agregarCliente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        idtext = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -117,6 +119,11 @@ public class Entrenadores extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Borrar Entrenador");
         jLabel6.setToolTipText("");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_borrarClienteLayout = new javax.swing.GroupLayout(btn_borrarCliente);
         btn_borrarCliente.setLayout(btn_borrarClienteLayout);
@@ -181,6 +188,7 @@ public class Entrenadores extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 70, 50));
+        jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
@@ -201,6 +209,11 @@ public class Entrenadores extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -299,6 +312,31 @@ public class Entrenadores extends javax.swing.JFrame {
          }       
     }//GEN-LAST:event_jLabel3MousePressed
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+                   int id=Integer.parseInt(idtext.getText());
+
+
+       try {
+           Connection con=DataBaseConnector.GetConexion();
+           PreparedStatement ps=con.prepareStatement("DELETE FROM Entredores WHERE cedula=? ");
+           ps.setInt(1,id);
+           ps.executeUpdate();
+           JOptionPane.showMessageDialog(null,"Registro Eliminado");
+           visualizartabla();
+    
+      } catch (SQLException e){
+           JOptionPane.showMessageDialog(null,e.toString());
+           
+           }
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+                   int fila=jTable1.getSelectedRow();
+           int id=Integer.parseInt(jTable1.getValueAt(fila,0).toString());
+           idtext.setText(String.valueOf(id));
+         
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -338,6 +376,7 @@ public class Entrenadores extends javax.swing.JFrame {
     private javax.swing.JPanel Mover;
     private javax.swing.JPanel btn_agregarCliente;
     private javax.swing.JPanel btn_borrarCliente;
+    private javax.swing.JLabel idtext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;

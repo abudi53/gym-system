@@ -18,6 +18,7 @@ public class Ingresos extends javax.swing.JFrame {
     public Ingresos(int dato) {
         initComponents();
         this.dato=dato;
+         setLocationRelativeTo(null);
     }
 
     private Ingresos() {

@@ -4,6 +4,10 @@
  */
 package GUI;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
+
 /**
  *
  * @author Abudi
@@ -17,6 +21,13 @@ public class Menu_Principal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.dato = dato;
+          Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("hh:mm a");
+        labelhora.setText(formateador.format(ahora));
+
+   
+   
+
         
     }
 
@@ -38,7 +49,8 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_cerrarSesion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelhora = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -102,10 +114,14 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         jPanel2.add(btn_cerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 439, 240, 40));
 
-        jLabel3.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Bienvenido");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 70));
+        labelhora.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
+        labelhora.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(labelhora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 250, 70));
+
+        jLabel4.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Bienvenido");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
@@ -338,6 +354,10 @@ public class Menu_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+      
+    
+    
     private void btn_cerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarSesionMouseReleased
       
         
@@ -437,7 +457,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -451,5 +471,6 @@ public class Menu_Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel labelhora;
     // End of variables declaration//GEN-END:variables
 }

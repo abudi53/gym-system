@@ -4,16 +4,27 @@
  */
 package GUI;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
-import java.sql.Statement;
+
+import javax.swing.ImageIcon;
 
 
 
@@ -31,6 +42,7 @@ public class Clientes extends javax.swing.JFrame {
          setLocationRelativeTo(null);
          idtext.setVisible(false);
        this.dato=dato;
+      
         
     }
 
@@ -52,7 +64,7 @@ public class Clientes extends javax.swing.JFrame {
         try{
             Connection con=DataBaseConnector.GetConexion();
 
-            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, [N.Telefono],Correo, inscripción FROM Clientes");
+            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Direccion, Telefono, Inscripcion FROM Clientes");
 
           // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
            // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, F_Nacimiento, Direccion, Email, inscripcion FROM Clientes");
@@ -87,6 +99,7 @@ public class Clientes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        labeli = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btn_borrarCliente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -114,9 +127,10 @@ public class Clientes extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(300, 500));
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 500));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         btn_borrarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_borrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,7 +167,7 @@ public class Clientes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(btn_borrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 240, -1));
+        jPanel2.add(btn_borrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 240, -1));
 
         btn_editarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_editarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -185,7 +199,7 @@ public class Clientes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 240, -1));
+        jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 240, -1));
 
         btn_agregarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_agregarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,7 +236,7 @@ public class Clientes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 240, -1));
+        jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 240, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
@@ -231,7 +245,7 @@ public class Clientes extends javax.swing.JFrame {
                 jLabel3MousePressed(evt);
             }
         });
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 50));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 70, 50));
 
         idtext.setEditable(false);
         jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
@@ -240,21 +254,28 @@ public class Clientes extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Sexo", "Edad", "Direccion", "Telefono", "E-mail", "Inscripcion"
+                "Cedula", "Nombre", "Sexo", "Edad", "Direccion", "Telefono", "Inscripcion"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -389,9 +410,35 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-           int fila=jTable1.getSelectedRow();
+          
+ try{
+              int fila=jTable1.getSelectedRow();
            int id=Integer.parseInt(jTable1.getValueAt(fila,0).toString());
-           idtext.setText(String.valueOf(id));
+           idtext.setText(String.valueOf(id)); 
+           PreparedStatement ps;
+           ResultSet rs;
+             Connection con=DataBaseConnector.GetConexion();
+           ps=con.prepareStatement("SELECT imagen FROM Clientes WHERE Cedula=?");
+           ps.setInt(1,id);
+           rs=ps.executeQuery();
+           
+           while(rs.next()){
+               idtext.setText(String.valueOf(id));
+                byte[] imageData = rs.getBytes("imagen");
+                ImageIcon imageIcon = new ImageIcon(imageData);
+                Image image = imageIcon.getImage().getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon scaledImageIcon = new ImageIcon(image);
+
+                ImageIcon icono=new ImageIcon(image);
+                labeli.setIcon(icono);
+           }
+          
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e.toString());
+            }
+       
+
+       
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**
@@ -446,5 +493,6 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labeli;
     // End of variables declaration//GEN-END:variables
 }

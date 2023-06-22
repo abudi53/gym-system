@@ -191,6 +191,11 @@ public class Paquetes extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Agregar Paquete");
         jLabel8.setToolTipText("");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_agregarClienteLayout = new javax.swing.GroupLayout(btn_agregarCliente);
         btn_agregarCliente.setLayout(btn_agregarClienteLayout);
@@ -326,6 +331,10 @@ public class Paquetes extends javax.swing.JFrame {
             this.setVisible(false);
         }
     }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments
