@@ -28,11 +28,15 @@ public class Clientes extends javax.swing.JFrame {
         initComponents();
          visualizartabla();
          setLocationRelativeTo(null);
+         idtext.setVisible(false);
+       
         
     }
 
         private void visualizartabla() {
         DefaultTableModel modelotabla=(DefaultTableModel) jTable1.getModel();
+
+        
         modelotabla.setRowCount(0);
         PreparedStatement ps;
         ResultSet rs;
@@ -45,7 +49,7 @@ public class Clientes extends javax.swing.JFrame {
 
             ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, [N.Telefono],Correo, inscripción FROM Clientes");
 
-            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
+          // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
            // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, F_Nacimiento, Direccion, Email, inscripcion FROM Clientes");
 
             rs=ps.executeQuery();
@@ -79,10 +83,6 @@ public class Clientes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btn_agregarPaquete = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        btn_agregarServicio = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         btn_borrarCliente = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         btn_editarCliente = new javax.swing.JPanel();
@@ -90,6 +90,7 @@ public class Clientes extends javax.swing.JFrame {
         btn_agregarCliente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        idtext = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -112,70 +113,6 @@ public class Clientes extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        btn_agregarPaquete.setBackground(new java.awt.Color(191, 25, 25));
-        btn_agregarPaquete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_agregarPaqueteMouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Agregar Paquete");
-        jLabel4.setToolTipText("");
-
-        javax.swing.GroupLayout btn_agregarPaqueteLayout = new javax.swing.GroupLayout(btn_agregarPaquete);
-        btn_agregarPaquete.setLayout(btn_agregarPaqueteLayout);
-        btn_agregarPaqueteLayout.setHorizontalGroup(
-            btn_agregarPaqueteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_agregarPaqueteLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel4)
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        btn_agregarPaqueteLayout.setVerticalGroup(
-            btn_agregarPaqueteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_agregarPaqueteLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel2.add(btn_agregarPaquete, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 240, -1));
-
-        btn_agregarServicio.setBackground(new java.awt.Color(191, 25, 25));
-        btn_agregarServicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_agregarServicioMouseClicked(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Agregar Servicio");
-        jLabel5.setToolTipText("");
-
-        javax.swing.GroupLayout btn_agregarServicioLayout = new javax.swing.GroupLayout(btn_agregarServicio);
-        btn_agregarServicio.setLayout(btn_agregarServicioLayout);
-        btn_agregarServicioLayout.setHorizontalGroup(
-            btn_agregarServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_agregarServicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-        btn_agregarServicioLayout.setVerticalGroup(
-            btn_agregarServicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_agregarServicioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel2.add(btn_agregarServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 240, -1));
-
         btn_borrarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_borrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,6 +125,11 @@ public class Clientes extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Borrar Cliente");
         jLabel6.setToolTipText("");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_borrarClienteLayout = new javax.swing.GroupLayout(btn_borrarCliente);
         btn_borrarCliente.setLayout(btn_borrarClienteLayout);
@@ -286,6 +228,9 @@ public class Clientes extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 50));
 
+        idtext.setEditable(false);
+        jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -305,6 +250,11 @@ public class Clientes extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -363,20 +313,12 @@ public class Clientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_agregarPaqueteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarPaqueteMouseClicked
-        // TODO add your handlin
-    }//GEN-LAST:event_btn_agregarPaqueteMouseClicked
-
-    private void btn_agregarServicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarServicioMouseClicked
-        // TODO add your handlin
-    }//GEN-LAST:event_btn_agregarServicioMouseClicked
-
     private void btn_borrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_borrarClienteMouseClicked
         // TODO add your handlin
     }//GEN-LAST:event_btn_borrarClienteMouseClicked
 
     private void btn_editarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarClienteMouseClicked
-        // TODO add your handlin
+       
     }//GEN-LAST:event_btn_editarClienteMouseClicked
 
     private void btn_agregarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarClienteMouseClicked
@@ -410,6 +352,32 @@ public class Clientes extends javax.swing.JFrame {
    
      
     }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+             int id=Integer.parseInt(idtext.getText());
+
+
+       try {
+           Connection con=DataBaseConnector.GetConexion();
+           PreparedStatement ps=con.prepareStatement("DELETE FROM Clientes WHERE cedula=? ");
+           ps.setInt(1,id);
+           ps.executeUpdate();
+           JOptionPane.showMessageDialog(null,"Registro Eliminado");
+           visualizartabla();
+    
+      } catch (SQLException e){
+           JOptionPane.showMessageDialog(null,e.toString());
+           
+           }
+    
+         
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+           int fila=jTable1.getSelectedRow();
+           int id=Integer.parseInt(jTable1.getValueAt(fila,0).toString());
+           idtext.setText(String.valueOf(id));
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -449,16 +417,13 @@ public class Clientes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Mover;
     private javax.swing.JPanel btn_agregarCliente;
-    private javax.swing.JPanel btn_agregarPaquete;
-    private javax.swing.JPanel btn_agregarServicio;
     private javax.swing.JPanel btn_borrarCliente;
     private javax.swing.JPanel btn_editarCliente;
+    private javax.swing.JTextField idtext;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

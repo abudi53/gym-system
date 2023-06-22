@@ -17,6 +17,7 @@ public class Menu_admin extends javax.swing.JFrame {
     public Menu_admin() {
         setResizable(false);
         initComponents();
+             setLocationRelativeTo(null);
     }
 
     /**
@@ -58,7 +59,7 @@ public class Menu_admin extends javax.swing.JFrame {
         Mover = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
 
@@ -202,6 +203,9 @@ public class Menu_admin extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(191, 25, 25));
         jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel3MouseClicked(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jPanel3MouseReleased(evt);
             }
@@ -294,6 +298,11 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(191, 25, 25));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -532,32 +541,49 @@ public class Menu_admin extends javax.swing.JFrame {
     private void jPanel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseReleased
         Clientes nuevaVentana = new Clientes();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel3MouseReleased
 // BOTON ENTRENADORES
     private void jPanel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseReleased
         Entrenadores nuevaVentana = new Entrenadores();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel7MouseReleased
 // BOTON INGRESOS
     private void jPanel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseReleased
         Ingresos nuevaVentana = new Ingresos();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel4MouseReleased
 // BOTON PAQUETES
     private void jPanel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseReleased
         Paquetes nuevaVentana = new Paquetes();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel8MouseReleased
 // BOTON SERVICIOS
     private void jPanel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseReleased
         Servicios nuevaVentana = new Servicios();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel5MouseReleased
 // BOTON EQUIPOS
     private void jPanel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseReleased
         Equipos nuevaVentana = new Equipos();
         nuevaVentana.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel9MouseReleased
+
+    private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
+       
+    }//GEN-LAST:event_jPanel3MouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+       this.setVisible(false);
+       Login frame=new Login();
+       frame.setVisible(true);
+       
+    }//GEN-LAST:event_jPanel6MouseClicked
 
     /**
      * @param args the command line arguments

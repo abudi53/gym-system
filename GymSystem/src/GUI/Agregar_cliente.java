@@ -100,6 +100,11 @@ public class Agregar_cliente extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Cancelar");
         jLabel6.setToolTipText("");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_borrarClienteLayout = new javax.swing.GroupLayout(btn_borrarCliente);
         btn_borrarCliente.setLayout(btn_borrarClienteLayout);
@@ -387,6 +392,9 @@ public class Agregar_cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     String sexo;
+    
+    
+    
     private void btn_borrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_borrarClienteMouseClicked
         // TODO add your handlin
     }//GEN-LAST:event_btn_borrarClienteMouseClicked
@@ -611,6 +619,10 @@ public class Agregar_cliente extends javax.swing.JFrame {
        jRadioButton2.setSelected(false);
         sexo="F";
     }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
