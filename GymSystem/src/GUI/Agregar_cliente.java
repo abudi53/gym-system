@@ -617,7 +617,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
             java.sql.Date sqlDate2 = java.sql.Date.valueOf(dateString2);
         
           Connection con=DataBaseConnector.GetConexion();
-           PreparedStatement ps=con.prepareStatement("INSERT INTO Clientes(Cedula, Nombre, Sexo, Edad,Direccion,Telefono,Correo, Inscripcion,[F.nacimiento],Imagen) VALUES (?,?,?,?,?,?,?,?,?,?)");
+           PreparedStatement ps=con.prepareStatement("INSERT INTO Clientes(Cedula, Nombre, Sexo, Edad, Direccion, Telefono, Email, Inscripcion, F_Nacimiento, Imagen) VALUES (?,?,?,?,?,?,?,?,?,?)");
            ps.setInt(1, cedula);
            ps.setString(2,nombre); 
            ps.setString(3, sexo);

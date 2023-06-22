@@ -64,7 +64,7 @@ public class Clientes extends javax.swing.JFrame {
         try{
             Connection con=DataBaseConnector.GetConexion();
 
-            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Direccion, Telefono, Inscripcion FROM Clientes");
+            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad, Direccion, Telefono, Inscripcion FROM Clientes");
 
           // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
            // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, F_Nacimiento, Direccion, Email, inscripcion FROM Clientes");
@@ -418,13 +418,13 @@ public class Clientes extends javax.swing.JFrame {
            PreparedStatement ps;
            ResultSet rs;
              Connection con=DataBaseConnector.GetConexion();
-           ps=con.prepareStatement("SELECT imagen FROM Clientes WHERE Cedula=?");
+           ps=con.prepareStatement("SELECT Imagen FROM Clientes WHERE Cedula=?");
            ps.setInt(1,id);
            rs=ps.executeQuery();
            
            while(rs.next()){
                idtext.setText(String.valueOf(id));
-                byte[] imageData = rs.getBytes("imagen");
+                byte[] imageData = rs.getBytes("Imagen");
                 ImageIcon imageIcon = new ImageIcon(imageData);
                 Image image = imageIcon.getImage().getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon scaledImageIcon = new ImageIcon(image);
