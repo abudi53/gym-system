@@ -127,10 +127,13 @@ public class Clientes extends javax.swing.JFrame {
         jPanel2.setMinimumSize(new java.awt.Dimension(300, 500));
         jPanel2.setPreferredSize(new java.awt.Dimension(300, 500));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 160, 140));
+
+        labeli.setBackground(new java.awt.Color(255, 255, 255));
+        labeli.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 160, 140));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         btn_borrarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_borrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -248,7 +251,11 @@ public class Clientes extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 70, 50));
 
         idtext.setEditable(false);
-        jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, -1, -1));
+        idtext.setBackground(new java.awt.Color(0, 0, 0));
+        idtext.setFont(new java.awt.Font("Coolvetica", 0, 18)); // NOI18N
+        idtext.setForeground(new java.awt.Color(255, 255, 255));
+        idtext.setBorder(null);
+        jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 260, 230, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
