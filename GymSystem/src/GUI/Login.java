@@ -211,7 +211,7 @@ public class Login extends javax.swing.JFrame {
 
              if (result.next()) {
                  this.setVisible(false);
-                      if( fieldNombre.getText().equals("Cajero")){
+                      if( fieldNombre.getText().equals("cajero")){
                  
                       Menu_Principal nuevaVentana = new Menu_Principal(1);
                       
