@@ -629,7 +629,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Registro guardado");
            
          
- 
+              
            
       } catch (SQLException e){
            JOptionPane.showMessageDialog(null,e.toString());

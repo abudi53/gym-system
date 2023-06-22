@@ -4,11 +4,13 @@
  */
 package GUI;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -46,7 +48,7 @@ public class Entrenadores extends javax.swing.JFrame {
         
         try{
             Connection con=DataBaseConnector.GetConexion();
-            ps=con.prepareStatement("SELECT Cedula, Nombre, F_Nacimiento, Sexo, Direccion, Telefono, Email, Especialidad, Horario FROM Entrenadores");
+            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Direccion, Telefono, Especialidad, Horario FROM Entrenadores");
            // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, F_Nacimiento, Direccion, Email, inscripcion FROM Clientes");
             rs=ps.executeQuery();
             rsmd=rs.getMetaData();
@@ -85,6 +87,7 @@ public class Entrenadores extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         idtext = new javax.swing.JLabel();
+        labeli = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -141,7 +144,7 @@ public class Entrenadores extends javax.swing.JFrame {
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel2.add(btn_borrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 240, -1));
+        jPanel2.add(btn_borrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 240, -1));
 
         btn_agregarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_agregarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,7 +181,7 @@ public class Entrenadores extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 240, -1));
+        jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 240, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
@@ -189,26 +192,34 @@ public class Entrenadores extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 70, 50));
         jPanel2.add(idtext, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 210, 50));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 160, 140));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cedula", "Nombre", "Fecha de Nacimiento", "Sexo", "Direccion", "Telefono", "E-mail", "Especialidades", "Horario"
+                "Cedula", "Nombre", "Sexo", "Direccion", "Telefono", "Especialidades", "Horario"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -334,6 +345,31 @@ public class Entrenadores extends javax.swing.JFrame {
                    int fila=jTable1.getSelectedRow();
            int id=Integer.parseInt(jTable1.getValueAt(fila,0).toString());
            idtext.setText(String.valueOf(id));
+            try{
+   
+           idtext.setText(String.valueOf(id)); 
+           PreparedStatement ps;
+           ResultSet rs;
+             Connection con=DataBaseConnector.GetConexion();
+           ps=con.prepareStatement("SELECT imagen FROM Clientes WHERE Cedula=?");
+           ps.setInt(1,id);
+           rs=ps.executeQuery();
+           
+           while(rs.next()){
+               idtext.setText(String.valueOf(id));
+                byte[] imageData = rs.getBytes("imagen");
+                ImageIcon imageIcon = new ImageIcon(imageData);
+                Image image = imageIcon.getImage().getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH);
+                ImageIcon scaledImageIcon = new ImageIcon(image);
+
+                ImageIcon icono=new ImageIcon(image);
+                labeli.setIcon(icono);
+           }
+          
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null,e.toString());
+            }
+       
          
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -387,5 +423,6 @@ public class Entrenadores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labeli;
     // End of variables declaration//GEN-END:variables
 }

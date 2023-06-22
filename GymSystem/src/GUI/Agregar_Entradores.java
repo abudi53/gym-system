@@ -5,7 +5,13 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.Date;
 import java.sql.PreparedStatement;
@@ -15,7 +21,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -30,6 +39,8 @@ public class Agregar_Entradores extends javax.swing.JFrame {
     public Agregar_Entradores() {
         initComponents();
          setLocationRelativeTo(null);
+         ruta2.setVisible(false);
+         
     }
 
     /**
@@ -49,6 +60,8 @@ public class Agregar_Entradores extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btn_editarCliente = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        labeli = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         fieldNombre = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         fieldCedula = new javax.swing.JTextField();
@@ -69,6 +82,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         fieldCedula5 = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
+        ruta2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -161,6 +175,20 @@ public class Agregar_Entradores extends javax.swing.JFrame {
         );
 
         jPanel2.add(btn_editarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 170, -1));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 150, 130));
+
+        jButton1.setText("Foto");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 70, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, -1));
 
@@ -386,6 +414,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
         });
         jPanel1.add(fieldCedula5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 390, 40));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 390, 10));
+        jPanel1.add(ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
@@ -533,20 +562,29 @@ public class Agregar_Entradores extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jLabel7MouseClicked
 
-    private void GuardarDatos() throws ParseException{
+    private void GuardarDatos() throws ParseException, FileNotFoundException, IOException{
     
     
+      
         try {
         String nombre=fieldNombre.getText();
         int cedula = Integer.parseInt(fieldCedula.getText());
         long numero= Long.parseLong(fieldCedula1.getText());
         String correo=fieldCedula2.getText();
-        String horario=fieldCedula4.getText();
         String direccion=fieldCedula5.getText();
        String Especialidad =fieldCedula3.getText();
-           
+           String horario=fieldCedula4.getText();
+ 
+       FileInputStream fis = new FileInputStream(ruta2.getText());
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            for (int readNum; (readNum = fis.read(buffer)) != -1;) {
+                bos.write(buffer, 0, readNum);
+             }
+            byte[] imagenEnBytes = bos.toByteArray();
+
           Connection con=DataBaseConnector.GetConexion();
-           PreparedStatement ps=con.prepareStatement("INSERT INTO Entradores (Cedula, Nombre, Sexo,Dirrecion,[N.Telefono],Correo, Especialidad,Horario) VALUES (?,?,?,?,?,?,?,?)");
+           PreparedStatement ps=con.prepareStatement("INSERT INTO Entreadores(Cedula, Nombre, Sexo,Direccion,Telefono,Correo, Especialidad,Horario,Imagen) VALUES (?,?,?,?,?,?,?,?,?,?)");
            ps.setInt(1, cedula);
            ps.setString(2,nombre); 
            ps.setString(3, sexo);
@@ -555,12 +593,11 @@ public class Agregar_Entradores extends javax.swing.JFrame {
            ps.setString(6,correo);
            ps.setString(7, Especialidad);
            ps.setString(8, horario);
+            ps.setBytes(9, imagenEnBytes);
 
            ps.executeUpdate();
            JOptionPane.showMessageDialog(null,"Registro guardado");
-           
-         
- 
+  
            
       } catch (SQLException e){
            JOptionPane.showMessageDialog(null,e.toString());
@@ -594,6 +631,35 @@ public class Agregar_Entradores extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String ruta;
+        JFileChooser JFileChooser= new JFileChooser();
+        FileNameExtensionFilter filtrado= new FileNameExtensionFilter("JPG, PNG","jpg","png");
+        JFileChooser.setFileFilter(filtrado);
+        String hola;
+        int respuesta=JFileChooser.showOpenDialog(this);
+
+        if(respuesta==JFileChooser.APPROVE_OPTION);
+        ruta=JFileChooser.getSelectedFile().getPath();
+
+        Image mImagen=new ImageIcon(ruta).getImage();
+        ImageIcon mIcono=new ImageIcon(mImagen.getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH));
+        labeli.setIcon(mIcono);
+        FileInputStream fi=null;
+        ruta2.setText(ruta);
+        try{
+            File file=new File(ruta);
+            fi=new FileInputStream(file);
+
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,ex.toString());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -645,6 +711,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCedula4;
     private javax.swing.JTextField fieldCedula5;
     private javax.swing.JTextField fieldNombre;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -662,5 +729,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JLabel labeli;
+    private javax.swing.JTextField ruta2;
     // End of variables declaration//GEN-END:variables
 }
