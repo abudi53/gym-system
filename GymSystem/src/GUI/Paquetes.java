@@ -19,13 +19,19 @@ import javax.swing.table.DefaultTableModel;
 public class Paquetes extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    int dato;
     /**
      * Creates new form Paquetes
      */
-    public Paquetes() {
+    public Paquetes(int dato) {
         initComponents();
         setLocationRelativeTo(null);
         visualizartabla();
+        this.dato=dato;
+    }
+
+    private Paquetes() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
         private void visualizartabla() {
@@ -68,6 +74,7 @@ public class Paquetes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btn_borrarCliente = new javax.swing.JPanel();
@@ -89,6 +96,15 @@ public class Paquetes extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 70, 50));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setMaximumSize(new java.awt.Dimension(300, 500));
@@ -299,6 +315,18 @@ public class Paquetes extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_MoverMousePressed
 
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        if(dato==1){
+            Menu_Principal frame = new Menu_Principal(dato);
+            frame.setVisible(true);
+            this.setVisible(false);
+        } else{
+            Menu_admin frame = new Menu_admin(dato);
+            frame.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel3MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -342,6 +370,7 @@ public class Paquetes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

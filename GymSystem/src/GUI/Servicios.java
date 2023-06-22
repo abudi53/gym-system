@@ -19,14 +19,20 @@ import javax.swing.table.DefaultTableModel;
 public class Servicios extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    int dato;
     /**
      * Creates new form Servicios
      */
-    public Servicios() {
+    public Servicios(int dato) {
         initComponents();
          visualizartabla();
          setLocationRelativeTo(null);
+         this.dato=dato;
         
+    }
+
+    private Servicios() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
         private void visualizartabla() {
@@ -79,6 +85,7 @@ public class Servicios extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         btn_agregarCliente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -198,6 +205,15 @@ public class Servicios extends javax.swing.JFrame {
 
         jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 240, -1));
 
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 70, 50));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -302,6 +318,18 @@ public class Servicios extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_MoverMousePressed
 
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        if(dato==1){
+            Menu_Principal frame = new Menu_Principal(dato);
+            frame.setVisible(true);
+            this.setVisible(false);
+        } else{
+            Menu_admin frame = new Menu_admin(dato);
+            frame.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_jLabel3MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +373,7 @@ public class Servicios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

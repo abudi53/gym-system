@@ -9,15 +9,19 @@ package GUI;
  * @author Abudi
  */
 public class Menu_Principal extends javax.swing.JFrame {
-
+    
+        private int dato;
     int xMouse, yMouse;
-    /**
-     * Creates new form Menu_Principal
-     */
-    public Menu_Principal() {
+ 
+    public Menu_Principal(int dato) {
         initComponents();
         setLocationRelativeTo(null);
+        this.dato = dato;
         
+    }
+
+    private Menu_Principal() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -355,7 +359,7 @@ public class Menu_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_MoverMousePressed
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
-       Servicios nuevaVentana = new Servicios();
+       Servicios nuevaVentana = new Servicios(dato);
        nuevaVentana.setVisible(true);
        this.setVisible(false);
        
@@ -368,25 +372,25 @@ public class Menu_Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel4MouseClicked
 
     private void jPanel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseClicked
-       Clientes nuevaVentana = new Clientes();
+       Clientes nuevaVentana = new Clientes(dato);
        nuevaVentana.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel3MouseClicked
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
-       Entrenadores nuevaVentana = new  Entrenadores ();
+       Entrenadores nuevaVentana = new  Entrenadores (dato);
        nuevaVentana.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel7MouseClicked
 
     private void jPanel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseClicked
-       Paquetes nuevaVentana = new  Paquetes ();
+       Paquetes nuevaVentana = new  Paquetes (dato);
        nuevaVentana.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel8MouseClicked
 
     private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
-       Servicios nuevaVentana = new Servicios ();
+       Servicios nuevaVentana = new Servicios (dato);
        nuevaVentana.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel9MouseClicked

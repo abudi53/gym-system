@@ -11,11 +11,17 @@ package GUI;
 public class Ingresos extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    int dato;
     /**
      * Creates new form Ingresos
      */
-    public Ingresos() {
+    public Ingresos(int dato) {
         initComponents();
+        this.dato=dato;
+    }
+
+    private Ingresos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -192,9 +198,15 @@ public class Ingresos extends javax.swing.JFrame {
     }//GEN-LAST:event_MoverMousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        Menu_Principal frame = new Menu_Principal();
+         if(dato==1){
+            Menu_Principal frame = new Menu_Principal(dato);
         frame.setVisible(true);
         this.setVisible(false);
+       } else{
+           Menu_admin frame = new Menu_admin(dato);
+        frame.setVisible(true);
+        this.setVisible(false);
+         }
     }//GEN-LAST:event_jLabel3MousePressed
 
     /**

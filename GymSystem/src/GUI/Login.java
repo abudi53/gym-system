@@ -213,12 +213,13 @@ public class Login extends javax.swing.JFrame {
                  this.setVisible(false);
                       if( fieldNombre.getText().equals("Cajero")){
                  
-                      Menu_Principal nuevaVentana = new Menu_Principal();
+                      Menu_Principal nuevaVentana = new Menu_Principal(1);
+                      
                        nuevaVentana.setVisible(true);
                        
                       } else{
                           
-                      Menu_admin nuevaVentana = new Menu_admin();
+                      Menu_admin nuevaVentana = new Menu_admin(3);
                        nuevaVentana.setVisible(true);
              }
 

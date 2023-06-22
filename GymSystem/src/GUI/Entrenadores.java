@@ -19,14 +19,19 @@ import javax.swing.table.DefaultTableModel;
 public class Entrenadores extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private int dato;
     /**
      * Creates new form Entrenadores
      */
-    public Entrenadores() {
+    public Entrenadores(int dato) {
         initComponents();
          visualizartabla();
          setLocationRelativeTo(null);
-        
+        this.dato=dato;
+    }
+
+    private Entrenadores() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
         private void visualizartabla() {
@@ -77,6 +82,7 @@ public class Entrenadores extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btn_agregarCliente = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Mover = new javax.swing.JPanel();
@@ -97,7 +103,7 @@ public class Entrenadores extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         btn_borrarCliente.setBackground(new java.awt.Color(191, 25, 25));
         btn_borrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -166,6 +172,15 @@ public class Entrenadores extends javax.swing.JFrame {
         );
 
         jPanel2.add(btn_agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 240, -1));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 10, 70, 50));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 500));
 
@@ -272,6 +287,18 @@ public class Entrenadores extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_jLabel8MouseClicked
 
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+         if(dato==1){
+            Menu_Principal frame = new Menu_Principal(dato);
+        frame.setVisible(true);
+        this.setVisible(false);
+       } else{
+           Menu_admin frame = new Menu_admin(dato);
+        frame.setVisible(true);
+        this.setVisible(false);
+         }       
+    }//GEN-LAST:event_jLabel3MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +341,7 @@ public class Entrenadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
