@@ -32,8 +32,6 @@ public class Menu_Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btn_editarPerfil = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         btn_cerrarSesion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -67,38 +65,6 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 20, 240, 121));
-
-        btn_editarPerfil.setBackground(new java.awt.Color(191, 25, 25));
-        btn_editarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_editarPerfilMouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Editar Perfil");
-        jLabel4.setToolTipText("");
-
-        javax.swing.GroupLayout btn_editarPerfilLayout = new javax.swing.GroupLayout(btn_editarPerfil);
-        btn_editarPerfil.setLayout(btn_editarPerfilLayout);
-        btn_editarPerfilLayout.setHorizontalGroup(
-            btn_editarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_editarPerfilLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btn_editarPerfilLayout.setVerticalGroup(
-            btn_editarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_editarPerfilLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel2.add(btn_editarPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 379, 240, -1));
 
         btn_cerrarSesion.setBackground(new java.awt.Color(191, 25, 25));
         btn_cerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,12 +334,9 @@ public class Menu_Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_editarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarPerfilMouseClicked
-        // TODO add your handlin
-    }//GEN-LAST:event_btn_editarPerfilMouseClicked
-
     private void btn_cerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarSesionMouseReleased
-        // TODO add your handling code here:
+      
+        
     }//GEN-LAST:event_btn_cerrarSesionMouseReleased
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
@@ -466,13 +429,11 @@ public class Menu_Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Mover;
     private javax.swing.JPanel btn_cerrarSesion;
-    private javax.swing.JPanel btn_editarPerfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
