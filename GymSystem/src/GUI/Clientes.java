@@ -42,7 +42,7 @@ public class Clientes extends javax.swing.JFrame {
         
         try{
             Connection con=DataBaseConnector.GetConexion();
-            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
+            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, [N.Telefono],Correo, inscripción FROM Clientes");
             rs=ps.executeQuery();
             rsmd=rs.getMetaData();
            colummnas=rsmd.getColumnCount();
@@ -247,6 +247,11 @@ public class Clientes extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Agregar Cliente");
         jLabel8.setToolTipText("");
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_agregarClienteLayout = new javax.swing.GroupLayout(btn_agregarCliente);
         btn_agregarCliente.setLayout(btn_agregarClienteLayout);
@@ -393,6 +398,13 @@ public class Clientes extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+       Agregar_cliente frame = new Agregar_cliente();
+        frame.setVisible(true);
+   
+     
+    }//GEN-LAST:event_jLabel8MouseClicked
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,17 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.util.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +29,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
      */
     public Agregar_cliente() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**
@@ -42,6 +54,8 @@ public class Agregar_cliente extends javax.swing.JFrame {
         fieldCedula = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         Mover = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         fieldCedula1 = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         fieldCedula2 = new javax.swing.JTextField();
@@ -118,6 +132,11 @@ public class Agregar_cliente extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Confirmar");
         jLabel7.setToolTipText("");
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout btn_editarClienteLayout = new javax.swing.GroupLayout(btn_editarCliente);
         btn_editarCliente.setLayout(btn_editarClienteLayout);
@@ -157,7 +176,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
                 fieldNombreActionPerformed(evt);
             }
         });
-        jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 390, 40));
+        jPanel1.add(fieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 390, 40));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 390, 10));
 
         fieldCedula.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
@@ -192,15 +211,33 @@ public class Agregar_cliente extends javax.swing.JFrame {
             }
         });
 
+        jLabel15.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("X");
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout MoverLayout = new javax.swing.GroupLayout(Mover);
         Mover.setLayout(MoverLayout);
         MoverLayout.setHorizontalGroup(
             MoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MoverLayout.createSequentialGroup()
+                .addGap(0, 537, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MoverLayout.setVerticalGroup(
             MoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MoverLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel15))
         );
 
         jPanel1.add(Mover, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 30));
@@ -293,6 +330,11 @@ public class Agregar_cliente extends javax.swing.JFrame {
         jRadioButton1.setFont(new java.awt.Font("Coolvetica", 0, 13)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButton1.setText("Femenino");
+        jRadioButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton1MouseClicked(evt);
+            }
+        });
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
@@ -303,6 +345,21 @@ public class Agregar_cliente extends javax.swing.JFrame {
         jRadioButton2.setFont(new java.awt.Font("Coolvetica", 0, 13)); // NOI18N
         jRadioButton2.setForeground(new java.awt.Color(204, 204, 204));
         jRadioButton2.setText("Masculino");
+        jRadioButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRadioButton2MouseClicked(evt);
+            }
+        });
+        jRadioButton2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jRadioButton2ComponentHidden(evt);
+            }
+        });
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
 
         fieldCedula5.setFont(new java.awt.Font("Helvetica Neue", 0, 32)); // NOI18N
@@ -322,14 +379,14 @@ public class Agregar_cliente extends javax.swing.JFrame {
                 fieldCedula5ActionPerformed(evt);
             }
         });
-        jPanel1.add(fieldCedula5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 390, 40));
+        jPanel1.add(fieldCedula5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 390, 40));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 390, 10));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    String sexo;
     private void btn_borrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_borrarClienteMouseClicked
         // TODO add your handlin
     }//GEN-LAST:event_btn_borrarClienteMouseClicked
@@ -444,6 +501,117 @@ public class Agregar_cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldCedula5ActionPerformed
 
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+      
+     try{ 
+        String nombre=fieldNombre.getText();
+        int cedula = Integer.parseInt(fieldCedula.getText());
+        long numero= Long.parseLong(fieldCedula1.getText());
+        String correo=fieldCedula2.getText();
+        String fecha=fieldCedula4.getText();
+       Calendar calendar = Calendar.getInstance();
+        Date currentDate = (Date) calendar.getTime();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date fecha2 = (Date) formatoFecha.parse(fecha);
+             Calendar calendar1 = Calendar.getInstance();
+            calendar1.setTime(currentDate);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTime(fecha2);
+            int edad = calendar2.get(Calendar.YEAR) - calendar1.get(Calendar.YEAR);
+             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dateString = format.format(fecha2);
+            java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);
+            GuardarDatos();
+          
+        } catch (ParseException e) {
+            System.out.println(e);
+        }
+            
+        }    catch (Exception e) {
+              JOptionPane.showMessageDialog(null, "Ingresa bien los datos");
+        }
+
+    
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void GuardarDatos() throws ParseException{
+    
+    
+        try {
+        String nombre=fieldNombre.getText();
+        int cedula = Integer.parseInt(fieldCedula.getText());
+        long numero= Long.parseLong(fieldCedula1.getText());
+        String correo=fieldCedula2.getText();
+        String fecha=fieldCedula4.getText();
+        String direccion=fieldCedula5.getText();
+       Calendar calendar = Calendar.getInstance();
+        Date currentDate = (Date) calendar.getTime();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            Date fecha2 = (Date) formatoFecha.parse(fecha);
+             Calendar calendar1 = Calendar.getInstance();
+            calendar1.setTime(currentDate);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTime(fecha2);
+            int edad = calendar2.get(Calendar.YEAR) - calendar1.get(Calendar.YEAR);
+             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String dateString = format.format(fecha2);
+            java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);
+            
+            String dateString2 = format.format(currentDate);
+            java.sql.Date sqlDate2 = java.sql.Date.valueOf(dateString2);
+           
+          Connection con=DataBaseConnector.GetConexion();
+           PreparedStatement ps=con.prepareStatement("INSERT INTO Clientes(Cedula, Nombre, Sexo, Edad,Dirrecion,[N.Telefono],Correo, inscripción,[F.nacimiento]) VALUES (?,?,?,?,?,?,?,?,?)");
+           ps.setInt(1, cedula);
+           ps.setString(2,nombre); 
+           ps.setString(3, sexo);
+           ps.setInt(4,edad);
+           ps.setString(5, direccion);
+           ps.setLong(6, numero);
+           ps.setString(7,correo);
+           ps.setDate(8, sqlDate2);
+           ps.setDate(9, sqlDate);
+
+           ps.executeUpdate();
+           JOptionPane.showMessageDialog(null,"Registro guardado");
+           
+         
+ 
+           
+      } catch (SQLException e){
+           JOptionPane.showMessageDialog(null,e.toString());
+           
+           }
+        
+        
+    }
+//    
+    
+    
+    
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton2ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jRadioButton2ComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ComponentHidden
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+    jRadioButton1.setSelected(false);
+    sexo="M";
+    }//GEN-LAST:event_jRadioButton2MouseClicked
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+       jRadioButton2.setSelected(false);
+        sexo="F";
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -493,7 +661,9 @@ public class Agregar_cliente extends javax.swing.JFrame {
     private javax.swing.JTextField fieldCedula5;
     private javax.swing.JTextField fieldNombre;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
