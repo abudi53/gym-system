@@ -557,7 +557,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
             calendar1.setTime(currentDate);
             Calendar calendar2 = Calendar.getInstance();
             calendar2.setTime(fecha2);
-            int edad = calendar2.get(Calendar.YEAR) - calendar1.get(Calendar.YEAR);
+            int edad = calendar1.get(Calendar.YEAR) - calendar2.get(Calendar.YEAR);
              SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String dateString = format.format(fecha2);
             java.sql.Date sqlDate = java.sql.Date.valueOf(dateString);

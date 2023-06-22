@@ -42,7 +42,12 @@ public class Clientes extends javax.swing.JFrame {
         
         try{
             Connection con=DataBaseConnector.GetConexion();
+
             ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, [N.Telefono],Correo, inscripción FROM Clientes");
+
+            ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, Edad,Dirrecion, Correo, inscripción FROM Clientes");
+           // ps=con.prepareStatement("SELECT Cedula, Nombre, Sexo, F_Nacimiento, Direccion, Email, inscripcion FROM Clientes");
+
             rs=ps.executeQuery();
             rsmd=rs.getMetaData();
            colummnas=rsmd.getColumnCount();

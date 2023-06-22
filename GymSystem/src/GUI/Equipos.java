@@ -4,6 +4,14 @@
  */
 package GUI;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Abudi
@@ -16,7 +24,43 @@ public class Equipos extends javax.swing.JFrame {
      */
     public Equipos() {
         initComponents();
+        setLocationRelativeTo(null);
+        visualizartabla();
+        
     }
+    
+        private void visualizartabla() {
+        DefaultTableModel modelotabla=(DefaultTableModel) jTable1.getModel();
+        modelotabla.setRowCount(0);
+        PreparedStatement ps;
+        ResultSet rs;
+        ResultSetMetaData rsmd;
+        int colummnas;
+  
+        
+        try{
+            Connection con=DataBaseConnector.GetConexion();
+            ps=con.prepareStatement("SELECT Id, Equipo, Mantenimiento, Descripcion FROM Equipos");
+            rs=ps.executeQuery();
+            rsmd=rs.getMetaData();
+           colummnas=rsmd.getColumnCount();
+           
+           while(rs.next()){
+               Object[] fila=new Object [colummnas];
+               for(int indice=0; indice<colummnas;indice++){
+                   fila[indice]=rs.getObject(indice+1);
+               }
+               modelotabla.addRow(fila);
+           }
+    
+            
+        } catch(SQLException e){
+            JOptionPane.showMessageDialog(null,e.toString());
+            
+        }
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
