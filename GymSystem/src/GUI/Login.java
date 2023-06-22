@@ -203,7 +203,7 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
        try {
             Connection con=DataBaseConnector.GetConexion();
-            String query = "SELECT * FROM Users WHERE Usuario=? AND Passowrd=?";
+            String query = "SELECT * FROM Users WHERE Usuario=? AND Password=?";
             PreparedStatement statement = con.prepareStatement(query);
             statement.setString(1, fieldNombre.getText());
             statement.setString(2, fieldPassword.getText());
