@@ -181,9 +181,9 @@ public class Agregar_cliente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 100, 40));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 90, 40));
         jPanel2.add(ruta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 130, 110));
+        jPanel2.add(labeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, 110));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/flecha-mini.png"))); // NOI18N
@@ -447,7 +447,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_MoverMousePressed
 
     private void fieldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusGained
-        if (fieldNombre.getText().equals("Nombre de usuario")){
+        if (fieldNombre.getText().equals("Nombre y Apellido")){
 
             fieldNombre.setText("");
             fieldNombre.setForeground(new Color(0,0,0));
@@ -456,7 +456,7 @@ public class Agregar_cliente extends javax.swing.JFrame {
 
     private void fieldNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldNombreFocusLost
         if(fieldNombre.getText().isEmpty()){
-            fieldNombre.setText("Nombre de usuario");
+            fieldNombre.setText("Nombre y Apellido");
             fieldNombre.setForeground(new Color(204,204,204));
         }
     }//GEN-LAST:event_fieldNombreFocusLost
@@ -466,11 +466,18 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldNombreActionPerformed
 
     private void fieldCedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedulaFocusGained
-        // TODO add your handling code here:
+        if (fieldCedula.getText().equals("Cedula")){
+
+            fieldCedula.setText("");
+            fieldCedula.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedulaFocusGained
 
     private void fieldCedulaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedulaFocusLost
-        // TODO add your handling code here:
+        if(fieldCedula.getText().isEmpty()){
+            fieldCedula.setText("Cedula");
+            fieldCedula.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedulaFocusLost
 
     private void fieldCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedulaActionPerformed
@@ -478,11 +485,17 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldCedulaActionPerformed
 
     private void fieldCedula1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula1FocusGained
-        // TODO add your handling code here:
+        if (fieldCedula1.getText().equals("Telefono")){
+            fieldCedula1.setText("");
+            fieldCedula1.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedula1FocusGained
 
     private void fieldCedula1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula1FocusLost
-        // TODO add your handling code here:
+        if(fieldCedula1.getText().isEmpty()){
+            fieldCedula1.setText("Telefono");
+            fieldCedula1.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedula1FocusLost
 
     private void fieldCedula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula1ActionPerformed
@@ -490,11 +503,18 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldCedula1ActionPerformed
 
     private void fieldCedula2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula2FocusGained
-        // TODO add your handling code here:
+        if (fieldCedula2.getText().equals("E-mail")){
+
+            fieldCedula2.setText("");
+            fieldCedula2.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedula2FocusGained
 
     private void fieldCedula2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula2FocusLost
-        // TODO add your handling code here:
+        if(fieldCedula2.getText().isEmpty()){
+            fieldCedula2.setText("E-mail");
+            fieldCedula2.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedula2FocusLost
 
     private void fieldCedula2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula2ActionPerformed
@@ -502,11 +522,17 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldCedula2ActionPerformed
 
     private void fieldCedula3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula3FocusGained
-        // TODO add your handling code here:
+        if (fieldCedula3.getText().equals("Edad")){
+            fieldCedula3.setText("");
+            fieldCedula3.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedula3FocusGained
 
     private void fieldCedula3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula3FocusLost
-        // TODO add your handling code here:
+        if(fieldCedula3.getText().isEmpty()){
+            fieldCedula3.setText("Edad");
+            fieldCedula3.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedula3FocusLost
 
     private void fieldCedula3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula3ActionPerformed
@@ -514,11 +540,17 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_fieldCedula3ActionPerformed
 
     private void fieldCedula4FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula4FocusGained
-        // TODO add your handling code here:
+        if (fieldCedula4.getText().equals("Fecha de Nacimiento")){
+            fieldCedula4.setText("");
+            fieldCedula4.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedula4FocusGained
 
     private void fieldCedula4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula4FocusLost
-        // TODO add your handling code here:
+        if(fieldCedula4.getText().isEmpty()){
+            fieldCedula4.setText("Fecha de Nacimiento");
+            fieldCedula4.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedula4FocusLost
 
     private void fieldCedula4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula4ActionPerformed
@@ -530,11 +562,17 @@ public class Agregar_cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void fieldCedula5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula5FocusGained
-        // TODO add your handling code here:
+        if (fieldCedula5.getText().equals("Direccion")){
+            fieldCedula5.setText("");
+            fieldCedula5.setForeground(new Color(0,0,0));
+        }
     }//GEN-LAST:event_fieldCedula5FocusGained
 
     private void fieldCedula5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fieldCedula5FocusLost
-        // TODO add your handling code here:
+        if(fieldCedula5.getText().isEmpty()){
+            fieldCedula5.setText("Direccion");
+            fieldCedula5.setForeground(new Color(204,204,204));
+        }
     }//GEN-LAST:event_fieldCedula5FocusLost
 
     private void fieldCedula5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldCedula5ActionPerformed

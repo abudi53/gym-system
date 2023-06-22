@@ -46,10 +46,6 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btn_cambiarUsuario = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        btn_editarPerfil = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         btn_cerrarSesion = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -84,71 +80,17 @@ public class Menu_admin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Logo con letra.png"))); // NOI18N
-
-        btn_cambiarUsuario.setBackground(new java.awt.Color(191, 25, 25));
-        btn_cambiarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_cambiarUsuarioMouseReleased(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Cambiar Usuario");
-        jLabel2.setToolTipText("");
-
-        javax.swing.GroupLayout btn_cambiarUsuarioLayout = new javax.swing.GroupLayout(btn_cambiarUsuario);
-        btn_cambiarUsuario.setLayout(btn_cambiarUsuarioLayout);
-        btn_cambiarUsuarioLayout.setHorizontalGroup(
-            btn_cambiarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_cambiarUsuarioLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-        btn_cambiarUsuarioLayout.setVerticalGroup(
-            btn_cambiarUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_cambiarUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        btn_editarPerfil.setBackground(new java.awt.Color(191, 25, 25));
-        btn_editarPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_editarPerfilMouseClicked(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Coolvetica", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Editar Perfil");
-        jLabel4.setToolTipText("");
-
-        javax.swing.GroupLayout btn_editarPerfilLayout = new javax.swing.GroupLayout(btn_editarPerfil);
-        btn_editarPerfil.setLayout(btn_editarPerfilLayout);
-        btn_editarPerfilLayout.setHorizontalGroup(
-            btn_editarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_editarPerfilLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        btn_editarPerfilLayout.setVerticalGroup(
-            btn_editarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn_editarPerfilLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 192, 121));
 
         btn_cerrarSesion.setBackground(new java.awt.Color(191, 25, 25));
         btn_cerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_cerrarSesionMousePressed(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_cerrarSesionMouseReleased(evt);
             }
@@ -165,9 +107,9 @@ public class Menu_admin extends javax.swing.JFrame {
         btn_cerrarSesionLayout.setHorizontalGroup(
             btn_cerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_cerrarSesionLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         btn_cerrarSesionLayout.setVerticalGroup(
             btn_cerrarSesionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,55 +119,16 @@ public class Menu_admin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.add(btn_cerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 210, 40));
+
         jLabel3.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("ADMIN");
+        jLabel3.setText("Admin");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 153, -1, -1));
 
         labelhora.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
         labelhora.setForeground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_editarPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_cambiarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(labelhora, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_cambiarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_editarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(labelhora, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel2.add(labelhora, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 265, 250, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 600));
 
@@ -536,18 +439,6 @@ public class Menu_admin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //BOTON DE CAMBIAR USUARIO
-    private void btn_cambiarUsuarioMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cambiarUsuarioMouseReleased
-        this.setVisible(false);
-        Login frame=new Login();
-        frame.setVisible(true);
-    }//GEN-LAST:event_btn_cambiarUsuarioMouseReleased
-
-    //BOTON DE EDITAR PERFIL
-    private void btn_editarPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editarPerfilMouseClicked
-        // TODO add your handlin
-    }//GEN-LAST:event_btn_editarPerfilMouseClicked
-
     //BOTON CERRAR SESION
     private void btn_cerrarSesionMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarSesionMouseReleased
         // TODO add your handling code here:
@@ -615,6 +506,12 @@ public class Menu_admin extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jPanel6MouseClicked
 
+    private void btn_cerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarSesionMousePressed
+        this.setVisible(false);
+        Login frame=new Login();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btn_cerrarSesionMousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -653,9 +550,7 @@ public class Menu_admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Mover;
-    private javax.swing.JPanel btn_cambiarUsuario;
     private javax.swing.JPanel btn_cerrarSesion;
-    private javax.swing.JPanel btn_editarPerfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -663,9 +558,7 @@ public class Menu_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

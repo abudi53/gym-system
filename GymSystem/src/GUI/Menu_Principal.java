@@ -84,6 +84,9 @@ public class Menu_Principal extends javax.swing.JFrame {
 
         btn_cerrarSesion.setBackground(new java.awt.Color(191, 25, 25));
         btn_cerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_cerrarSesionMousePressed(evt);
+            }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 btn_cerrarSesionMouseReleased(evt);
             }
@@ -121,7 +124,7 @@ public class Menu_Principal extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Coolvetica", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Bienvenido");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 70));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 70));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 500));
 
@@ -414,6 +417,12 @@ public class Menu_Principal extends javax.swing.JFrame {
        nuevaVentana.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_jPanel9MouseClicked
+
+    private void btn_cerrarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cerrarSesionMousePressed
+        Login frameLog = new Login();
+        frameLog.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btn_cerrarSesionMousePressed
 
     /**
      * @param args the command line arguments
