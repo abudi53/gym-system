@@ -351,13 +351,13 @@ public class Entrenadores extends javax.swing.JFrame {
            PreparedStatement ps;
            ResultSet rs;
              Connection con=DataBaseConnector.GetConexion();
-           ps=con.prepareStatement("SELECT imagen FROM Clientes WHERE Cedula=?");
+           ps=con.prepareStatement("SELECT Imagen FROM Entrenadores WHERE Cedula=?");
            ps.setInt(1,id);
            rs=ps.executeQuery();
            
            while(rs.next()){
                idtext.setText(String.valueOf(id));
-                byte[] imageData = rs.getBytes("imagen");
+                byte[] imageData = rs.getBytes("Imagen");
                 ImageIcon imageIcon = new ImageIcon(imageData);
                 Image image = imageIcon.getImage().getScaledInstance(labeli.getWidth(), labeli.getHeight(), Image.SCALE_SMOOTH);
                 ImageIcon scaledImageIcon = new ImageIcon(image);

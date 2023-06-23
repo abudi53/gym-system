@@ -625,7 +625,7 @@ public class Agregar_Entradores extends javax.swing.JFrame {
             byte[] imagenEnBytes = bos.toByteArray();
 
           Connection con=DataBaseConnector.GetConexion();
-           PreparedStatement ps=con.prepareStatement("INSERT INTO Entreadores(Cedula, Nombre, Sexo,Direccion,Telefono,Correo, Especialidad,Horario,Imagen) VALUES (?,?,?,?,?,?,?,?,?,?)");
+           PreparedStatement ps=con.prepareStatement("INSERT INTO Entrenadores(Cedula, Nombre, Sexo,Direccion,Telefono,Email, Especialidad,Horario,Imagen) VALUES (?,?,?,?,?,?,?,?,?)");
            ps.setInt(1, cedula);
            ps.setString(2,nombre); 
            ps.setString(3, sexo);
